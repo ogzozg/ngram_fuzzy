@@ -28,7 +28,6 @@ st.title("N-Gram Frequency Search")
 st.markdown("""
 This application allows you to search for phrases within the dataset, even with typos. 
 It displays frequency counts across different sources and highlights where each n-gram appears.
-Type in the box below to search for an n-gram!
 """)
 
 if df is not None:
@@ -39,7 +38,7 @@ if df is not None:
         score_cutoff = st.slider("Min Match Score", min_value=0, max_value=100, value=50)
 
     # --- Search Input ---
-    query = st.text_input("Search n-gram:", placeholder="Type here... (e.g., 'eğitim', 'mücadele')")
+    query = st.text_input("Search phrase:", placeholder="Type here... (e.g., 'eğitim', 'mücadele')")
 
     # --- Fuzzy Logic ---
     if query:
