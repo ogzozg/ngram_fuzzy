@@ -27,8 +27,8 @@ df = load_data()
 st.title("N-Gram Frequency Search")
 st.markdown("""
 This application allows you to search for phrases within the dataset, even with typos. 
-It displays frequency counts across different sources (Video, MEB, Tübitak, Saha, Yazın) and highlights where each phrase appears.
-Type in the box below to search for a phrase!
+It displays frequency counts across different sources and highlights where each n-gram appears.
+Type in the box below to search for an n-gram!
 """)
 
 if df is not None:
@@ -39,7 +39,7 @@ if df is not None:
         score_cutoff = st.slider("Min Match Score", min_value=0, max_value=100, value=50)
 
     # --- Search Input ---
-    query = st.text_input("Search Phrase:", placeholder="Type a phrase here... (e.g., 'eğitim', 'mücadele')")
+    query = st.text_input("Search n-gram:", placeholder="Type here... (e.g., 'eğitim', 'mücadele')")
 
     # --- Fuzzy Logic ---
     if query:
@@ -100,4 +100,4 @@ if df is not None:
             st.dataframe(df.head(40), use_container_width=True)
 
 else:
-    st.warning("Data could not be loaded. Please ensure 'ngram_results_dual_stream.xlsx' is in the same directory.")
+    st.warning("Data could not be loaded. Please ensure the file is in the same directory.")
